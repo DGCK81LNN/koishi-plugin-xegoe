@@ -1,0 +1,42 @@
+{
+  "name": "@dgck81lnn/koishi-plugin-xegoe",
+  "description": "Render Shidinn text as image",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/DGCK81LNN/koishi-plugin-xegoe",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DGCK81LNN/koishi-plugin-xegoe.git"
+  },
+  "keywords": [
+    "chatbot",
+    "koishi",
+    "plugin",
+    "shidinn",
+    "xdi8"
+  ],
+  "koishi": {
+    "description": {
+      "en": "Render Shidinn text as image",
+      "zh": "希顶语文本渲染成图片"
+    },
+    "service": {
+      "required": [
+        "puppeteer"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "koishi": "^4.16.1",
+    "koishi-plugin-puppeteer": "^3.7.3"
+  },
+  "dependencies": {
+    "xdi8-transcriber": "^0.2.1"
+  }
+}

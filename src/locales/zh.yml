@@ -1,0 +1,8 @@
+commands:
+  xegoe:
+    description: 希顶字母图片
+    usage: 用希顶字体渲染希顶聊天字母或希顶字母 PUA 编码。
+    arguments:
+      text: 文本
+    messages:
+      no-shidinn-letter: 未发现希顶字母或希顶汉字。
