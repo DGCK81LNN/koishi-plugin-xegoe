@@ -1,5 +1,6 @@
 import { Context, Schema } from "koishi"
 import { chatToXdPUA } from "xdi8-transcriber"
+import { stripTags } from "./utils"
 
 export const name = "xegoe"
 export const using = ["puppeteer"] as const
@@ -31,6 +32,8 @@ export function apply(ctx: Context, config: Config) {
       showWarning: true,
     })
     .action(({ session }, text) => {
+      text = stripTags(text)
+
       const pua = chatToXdPUA(text)
       if (!pua.match(/[\ue000-\uf7ff\u21E7\u21E9]/))
         return session.text(".no-shidinn-letter")
