@@ -1,7 +1,7 @@
 {
   "name": "@dgck81lnn/koishi-plugin-xegoe",
   "description": "Render Shidinn text as image",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -37,6 +37,6 @@
     "koishi-plugin-puppeteer": "^3.7.3"
   },
   "dependencies": {
-    "xdi8-transcriber": "^0.2.1"
+    "xdi8-transcriber": "^0.3.0"
   }
 }
