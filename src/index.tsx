@@ -129,7 +129,7 @@ export function apply(ctx: Context, config: Config) {
     .option("all", "-a")
     .option("x2h", "-x")
     .action(({ options: { all, x2h }, session, source }, text) => {
-      if (source) text = stripTags(tryRestoreRawText(text, source)) || text
+      if (source) text = stripTags(tryRestoreRawText(text, source) || text)
 
       const result = (x2h ? xhTranscribe : hxTranscribe)(text)
       const visual = formatResult(result, x2h ? "x" : "h", { all })
