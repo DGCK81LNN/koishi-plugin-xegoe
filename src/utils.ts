@@ -1,7 +1,7 @@
 import { h } from "koishi"
 
 export function stripTags(text: string) {
-  return (
+  return h.unescape(
     h
       .transform(text.replace(/[\ufdd0\ufdd1]/g, "\ufffd"), {
         // use noncharacter codepoints to mark specific anchors
