@@ -10,5 +10,5 @@ commands:
       all: 处理汉字时，显示所有可能的转写结果。
       x2h: 希顶转汉字模式
     messages:
-      no-shidinn-letter-or-hanzi: 未发现希顶基本字母或可注音的汉字。
+      no-shidinn-letter-or-hanzi: 未发现希顶字母或可注音的汉字。
       no-shidinn-word: 未发现正确的希顶词（注意：连写无效）。

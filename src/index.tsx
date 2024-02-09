@@ -1,4 +1,4 @@
-import { Context, Schema, Session, h } from "koishi"
+import { Context, Schema } from "koishi"
 import {
   Alternation,
   HanziToXdi8Transcriber,
@@ -6,7 +6,7 @@ import {
   Xdi8ToHanziTranscriber,
   chatToXdPUA,
 } from "xdi8-transcriber"
-import { stripTags } from "./utils"
+import { tryRestoreRawText, stripTags } from "./utils"
 
 export const name = "xegoe"
 export const using = ["puppeteer"] as const
@@ -121,7 +121,7 @@ export function apply(ctx: Context, config: Config) {
   logger.level = 3
 
   ctx
-    .command("xdi8/xegoe <text:text>", {
+    .command("xegoe <text:text>", {
       checkArgCount: true,
       checkUnknown: true,
       showWarning: true,
@@ -129,13 +129,7 @@ export function apply(ctx: Context, config: Config) {
     .option("all", "-a")
     .option("x2h", "-x")
     .action(({ options: { all, x2h }, session, source }, text) => {
-      try {
-        const ind = h.unescape(source).indexOf(text)
-        if (ind === -1) throw "not found"
-        text = stripTags(source.slice(ind))
-      } catch (e) {
-        logger.debug("failed to find raw text from argv:", e, text)
-      }
+      if (source) text = stripTags(tryRestoreRawText(text, source)) || text
 
       const result = (x2h ? xhTranscribe : hxTranscribe)(text)
       const visual = formatResult(result, x2h ? "x" : "h", { all })
