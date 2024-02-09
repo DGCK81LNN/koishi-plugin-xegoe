@@ -93,7 +93,6 @@ function formatResult<T extends "h" | "x">(
   })
 
   const footnotes = alts.map(seg => {
-    console.dir(seg)
     return (
       <li>
         {seg[0].content.map(seg => seg[sourceType]).join("")}:
